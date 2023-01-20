@@ -1,0 +1,64 @@
+<%= stylesheet_link_tag 'users', :media => "all" %>
+
+<%= link_to "トップページへ", works_path %>
+
+<h2>ユーザーマイページ</h2>
+<div class="userinfo-container">
+  <div class="item">
+    名前 : <%= @user.name %></div>
+  <div class="item">
+    メールアドレス : <%= @user.email %></div>
+  <% if current_user.id == @user.id %>
+    <%= button_to "修正", edit_user_registration_path , method: :get %>
+  <% end %>
+</div>
+
+
+<div class="search-container">
+  <h3>投稿を検索</h3>
+  <div class="search">
+    <%= form_tag({controller:"users",action:"show"}, method: :get) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'ワード検索'  %>
+    <% end %>
+  </div>
+  </br>
+  <div class="search">
+      <div class="tag_list">
+      <%= form_tag({controller:"users",action:"show"}, method: :get) do %>
+        <% Tag.all.each do |t| %>
+            <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+        <% end %>
+      <%= submit_tag 'タグ検索' %>
+      <% end %>
+      </div>
+  </div>
+</div>
+
+
+<div class="ES-container">
+<h4>ES一覧</h4>
+<div class="new">
+  <%= button_to "新規投稿へ", new_work_path, method: :get  %>
+  </div>
+<% @userworks.each do |t| %>
+  <% if t.user_id == current_user.id %>
+    <div class="ES">
+      <div class="main-box">
+        <%= t.title %>
+      </div>
+      <div class="left-container">
+        <%= t.remarks %>
+      </div>
+      <div class="right-container">
+        作成<%= t.created_at.to_s(:datetime_jp) %><br />
+        最終編集<%= t.updated_at.to_s(:datetime_jp) %><br />
+        <%= button_to "詳細へ", work_path(t.id), method: :get %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+<div class="mypage_margin">
+</div>

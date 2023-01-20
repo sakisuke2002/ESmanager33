@@ -1,0 +1,30 @@
+<h1>ESmanager</h1>
+<h3>ES詳細</h3>
+<div class="work">
+  <p><%= @work.title %></p>
+  <% @work.tags.each do |tag| %>
+    <span><%= tag.name %></span>
+  <% end %>
+  <p><%= @work.created_at %></p>
+  <p><%= @work.updated_at %></p>
+  <p><%= @work.remarks %></p>
+  <p><%= @work.question_1 %></p>
+  <p><%= @work.character_limit_1 %></p>
+  <p><%= @work.answer_1 %></p>
+  <p><%= @work.question_2 %></p>
+  <p><%= @work.character_limit_2 %></p>
+  <p><%= @work.answer_2 %></p>
+  <p><%= @work.question_3 %></p>
+  <p><%= @work.character_limit_3 %></p>
+  <p><%= @work.answer_3 %></p>
+  <p><%= @work.question_4 %></p>
+  <p><%= @work.character_limit_4 %></p>
+  <p><%= @work.answer_4 %></p>
+  <p><%= @work.question_5 %></p>
+  <p><%= @work.character_limit_5 %></p>
+  <p><%= @work.answer_5 %></p>
+</div>
+
+<%= link_to "編集する", edit_work_path(@work.id) %>
+<%= link_to "マイページへ", user_path(current_user.id) %>
+<%= button_to "削除する", work_path(@work.id), method: :delete %>

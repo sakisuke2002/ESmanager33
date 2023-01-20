@@ -1,0 +1,164 @@
+<h1>ESmanager</h1>
+<h3>ES編集ページ</h3>
+<%= form_for @work do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :size => 30 %>
+  </div>
+
+  <div class='form-group'>
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class='form-check'>
+                <%= tag.label class: 'form-check-label' do %>
+                    <%= tag.check_box class: 'form-check-input' %>
+                    <%= tag.text %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+  <div class="field">
+    <%= f.label :備考  %>
+    <%= f.text_area :remarks, :size => "30x2" %>
+  </div>
+
+<!--質問1--!>
+
+  <div class="field">
+    <%= f.label :質問1  %>
+    <%= f.text_area :question_1, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文字数  %>
+    <%= f.number_field :character_limit_1, :size => 10%>
+  </div>
+
+  <div class="form-group_1">
+    <%= f.label :答え１ %>
+    <label>現在<span></span>文字</label><br>
+    <%= f.text_area :answer_1, :size => "30x2" %>
+  </div>
+
+  <script>
+    document.addEventListener('input',e=>{
+      let t=e.target.closest('.form-group_1 textarea');
+      if(t){
+        t.closest('.form-group_1').querySelector('label span').textContent=t.value.length;
+      }
+    });
+  </script>
+
+  <!--質問2--!>
+
+  <div class="field">
+    <%= f.label :質問2  %>
+    <%= f.text_area :question_2, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文字数  %>
+    <%= f.number_field :character_limit_2, :size => 10%>
+  </div>
+
+  <div class="form-group_2">
+    <%= f.label :答え2 %>
+    <label>現在<span></span>文字</label><br>
+    <%= f.text_area :answer_2, :size => "30x2" %>
+  </div>
+
+  <script>
+    document.addEventListener('input',e=>{
+      let t=e.target.closest('.form-group_2 textarea');
+      if(t){
+        t.closest('.form-group_2').querySelector('label span').textContent=t.value.length;
+      }
+    });
+  </script>
+
+  <!--質問3--!>
+
+  <div class="field">
+    <%= f.label :質問3  %>
+    <%= f.text_area :question_3, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文字数  %>
+    <%= f.number_field :character_limit_3, :size => 10%>
+  </div>
+
+  <div class="form-group_3">
+    <%= f.label :答え3 %>
+    <label>現在<span></span>文字</label><br>
+    <%= f.text_area :answer_3, :size => "30x2" %>
+  </div>
+
+  <script>
+    document.addEventListener('input',e=>{
+      let t=e.target.closest('.form-group_3 textarea');
+      if(t){
+        t.closest('.form-group_3').querySelector('label span').textContent=t.value.length;
+      }
+    });
+  </script>
+
+  <!--質問4--!>
+
+  <div class="field">
+    <%= f.label :質問4  %>
+    <%= f.text_area :question_4, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文字数  %>
+    <%= f.number_field :character_limit_4, :size => 10%>
+  </div>
+
+  <div class="form-group_4">
+    <%= f.label :答え4 %>
+    <label>現在<span></span>文字</label><br>
+    <%= f.text_area :answer_4, :size => "30x2" %>
+  </div>
+
+  <script>
+    document.addEventListener('input',e=>{
+      let t=e.target.closest('.form-group_4 textarea');
+      if(t){
+        t.closest('.form-group_4').querySelector('label span').textContent=t.value.length;
+      }
+    });
+  </script>
+
+  <!--質問5--!>
+
+  <div class="field">
+    <%= f.label :質問5  %>
+    <%= f.text_area :question_5, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :文字数  %>
+    <%= f.number_field :character_limit_5, :size => 10%>
+  </div>
+
+  <div class="form-group_1">
+    <%= f.label :答え5 %>
+    <label>現在<span></span>文字</label><br>
+    <%= f.text_area :answer_5, :size => "30x2" %>
+  </div>
+
+  <script>
+    document.addEventListener('input',e=>{
+      let t=e.target.closest('.form-group_5 textarea');
+      if(t){
+        t.closest('.form-group_5').querySelector('label span').textContent=t.value.length;
+      }
+    });
+  </script>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "マイページへ", user_path(current_user.id) %>

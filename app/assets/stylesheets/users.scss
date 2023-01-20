@@ -1,0 +1,106 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ログインページ
+.login{
+    background-image: url(login_image_2);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Klee One', cursive;
+    
+
+  }
+  
+  .container {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+h2 {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+//マイページ
+.userinfo-container {
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.search-container{
+    background-color: #EAEAEA;
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px;
+}
+.search{
+    justify-content: center;
+    align-items: center;
+    background-color: #EAEAEA;
+    text-align: center;
+    
+}
+
+ul{
+    padding-left:0;
+}
+li{
+    list-style:none;
+}
+
+.new{
+    text-align:right;
+}
+
+.ES-container {
+    width: 50%;
+    margin: 10px auto;
+}
+
+h3 {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h4{
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 115%;
+}
+
+.ES {
+    border-top: solid #979797;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.main-box {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-container {
+    text-align: right
+}
+
+.mypage_margin{
+    width: 100%;
+    height: 100px;
+    background-color: white;
+}
