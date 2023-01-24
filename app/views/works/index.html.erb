@@ -9,13 +9,3 @@
   </div> -->
 </div>
 
-<div class="button-container">
-    <% if user_signed_in? %>
-    <div class="button"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
-    <div class="button"><%= button_to "マイページへ", user_path(current_user.id), method: :get %></div>
-    <% else %>
-    <div class="button"><%= button_to "新規登録", new_user_registration_path, method: :get %></div>
-    <div class="button"><%= button_to "ログイン", new_user_session_path, method: :get %></div>
-    <% end %>
-</div>
-

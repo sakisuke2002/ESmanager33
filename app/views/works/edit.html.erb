@@ -1,164 +1,220 @@
-<h1>ESmanager</h1>
-<h3>ES編集ページ</h3>
+<%= stylesheet_link_tag 'edit', :media => "all" %>
+
+<h3>編集</h3>
 <%= form_for @work do |f| %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :size => 30 %>
-  </div>
-
-  <div class='form-group'>
-        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-            <div class='form-check'>
-                <%= tag.label class: 'form-check-label' do %>
-                    <%= tag.check_box class: 'form-check-input' %>
-                    <%= tag.text %>
-                <% end %>
-            </div>
-        <% end %>
+  <div class="textfield_title">
+    <%= f.label :題名 %>
+    <%= f.text_field :title, class: "titlefield" %>
+    <br>
+    <br>
+    <div class='form-check'>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+          <%= tag.label class: 'form-check-label' do %>
+            <%= tag.check_box class: 'form-check-input' %>
+            <%= tag.text %>
+          <% end %>
+      <% end %>
     </div>
-
-  <div class="field">
+    <br>
     <%= f.label :備考  %>
-    <%= f.text_area :remarks, :size => "30x2" %>
+    <%= f.text_area :remarks, class: "remarkfield" %>
   </div>
+<br>
+  
 
 <!--質問1--!>
-
-  <div class="field">
-    <%= f.label :質問1  %>
-    <%= f.text_area :question_1, :size => "30x2" %>
-  </div>
-
-  <div class="field">
+<div class="textfield_question">
+    <div class="questionbox">
+      <%= f.label :質問1  %>
+      <%= f.text_area :question_1, class: "questionfield" %>
+    </div>
+  <div class="countbox">
     <%= f.label :文字数  %>
-    <%= f.number_field :character_limit_1, :size => 10%>
+    <%= f.number_field :character_limit_1, :size => 5%>
   </div>
-
+  <br>
   <div class="form-group_1">
-    <%= f.label :答え１ %>
-    <label>現在<span></span>文字</label><br>
-    <%= f.text_area :answer_1, :size => "30x2" %>
+      <%= f.label :答え1 %>
+      <%= f.text_area :answer_1, class: "questionfield" %><br>
+      <div class=countbox>
+        <label>現在<span>0</span>文字</label><br>
+      </div>
   </div>
+</div>
 
   <script>
     document.addEventListener('input',e=>{
       let t=e.target.closest('.form-group_1 textarea');
       if(t){
         t.closest('.form-group_1').querySelector('label span').textContent=t.value.length;
+      }else{
+        0
       }
     });
   </script>
-
-  <!--質問2--!>
-
-  <div class="field">
-    <%= f.label :質問2  %>
-    <%= f.text_area :question_2, :size => "30x2" %>
-  </div>
-
-  <div class="field">
+</div> 
+  
+<!--質問２--!>
+<div class="textfield_question">
+    <div class="questionbox">
+      <%= f.label :質問2  %>
+      <%= f.text_area :question_2, class: "questionfield" %>
+    </div>
+  <div class="countbox">
     <%= f.label :文字数  %>
-    <%= f.number_field :character_limit_2, :size => 10%>
+    <%= f.number_field :character_limit_2, :size => 5%>
   </div>
-
-  <div class="form-group_2">
-    <%= f.label :答え2 %>
-    <label>現在<span></span>文字</label><br>
-    <%= f.text_area :answer_2, :size => "30x2" %>
+  <br>
+  <div class="form-group_1">
+      <%= f.label :答え2 %>
+      <%= f.text_area :answer_2, class: "questionfield" %><br>
+      <div class=countbox>
+        <label>現在<span>0</span>文字</label><br>
+      </div>
   </div>
+</div>
 
   <script>
     document.addEventListener('input',e=>{
       let t=e.target.closest('.form-group_2 textarea');
       if(t){
         t.closest('.form-group_2').querySelector('label span').textContent=t.value.length;
+      }else{
+        0
       }
     });
   </script>
+</div> 
 
-  <!--質問3--!>
-
-  <div class="field">
-    <%= f.label :質問3  %>
-    <%= f.text_area :question_3, :size => "30x2" %>
-  </div>
-
-  <div class="field">
+<!--質問３--!>
+<div class="textfield_question">
+    <div class="questionbox">
+      <%= f.label :質問3  %>
+      <%= f.text_area :question_3, class: "questionfield" %>
+    </div>
+  <div class="countbox">
     <%= f.label :文字数  %>
-    <%= f.number_field :character_limit_3, :size => 10%>
+    <%= f.number_field :character_limit_3, :size => 5%>
   </div>
-
+  <br>
   <div class="form-group_3">
-    <%= f.label :答え3 %>
-    <label>現在<span></span>文字</label><br>
-    <%= f.text_area :answer_3, :size => "30x2" %>
+      <%= f.label :答え3 %>
+      <%= f.text_area :answer_3, class: "questionfield" %><br>
+      <div class=countbox>
+        <label>現在<span>0</span>文字</label><br>
+      </div>
   </div>
+</div>
 
   <script>
     document.addEventListener('input',e=>{
       let t=e.target.closest('.form-group_3 textarea');
       if(t){
         t.closest('.form-group_3').querySelector('label span').textContent=t.value.length;
+      }else{
+        0
       }
     });
   </script>
+</div> 
 
-  <!--質問4--!>
-
-  <div class="field">
-    <%= f.label :質問4  %>
-    <%= f.text_area :question_4, :size => "30x2" %>
-  </div>
-
-  <div class="field">
+<!--質問４--!>
+<div class="textfield_question">
+    <div class="questionbox">
+      <%= f.label :質問4  %>
+      <%= f.text_area :question_4, class: "questionfield" %>
+    </div>
+  <div class="countbox">
     <%= f.label :文字数  %>
-    <%= f.number_field :character_limit_4, :size => 10%>
+    <%= f.number_field :character_limit_4, :size => 5%>
   </div>
-
+  <br>
   <div class="form-group_4">
-    <%= f.label :答え4 %>
-    <label>現在<span></span>文字</label><br>
-    <%= f.text_area :answer_4, :size => "30x2" %>
+      <%= f.label :答え4 %>
+      <%= f.text_area :answer_4, class: "questionfield" %><br>
+      <div class=countbox>
+        <label>現在<span>0</span>文字</label><br>
+      </div>
   </div>
+</div>
 
   <script>
     document.addEventListener('input',e=>{
       let t=e.target.closest('.form-group_4 textarea');
       if(t){
         t.closest('.form-group_4').querySelector('label span').textContent=t.value.length;
+      }else{
+        0
       }
     });
   </script>
+</div> 
 
-  <!--質問5--!>
-
-  <div class="field">
-    <%= f.label :質問5  %>
-    <%= f.text_area :question_5, :size => "30x2" %>
-  </div>
-
-  <div class="field">
+ <!--質問５--!> 
+ <div class="textfield_question">
+    <div class="questionbox">
+      <%= f.label :質問5  %>
+      <%= f.text_area :question_1, class: "questionfield" %>
+    </div>
+  <div class="countbox">
     <%= f.label :文字数  %>
-    <%= f.number_field :character_limit_5, :size => 10%>
+    <%= f.number_field :character_limit_5, :size => 5%>
   </div>
-
-  <div class="form-group_1">
-    <%= f.label :答え5 %>
-    <label>現在<span></span>文字</label><br>
-    <%= f.text_area :answer_5, :size => "30x2" %>
+  <br>
+  <div class="form-group_5">
+      <%= f.label :答え5 %>
+      <%= f.text_area :answer_5, class: "questionfield" %><br>
+      <div class=countbox>
+        <label>現在<span>0</span>文字</label><br>
+      </div>
   </div>
+</div>
 
   <script>
     document.addEventListener('input',e=>{
       let t=e.target.closest('.form-group_5 textarea');
       if(t){
         t.closest('.form-group_5').querySelector('label span').textContent=t.value.length;
+      }else{
+        0
       }
     });
   </script>
+</div> 
 
-  <%= f.submit "投稿する" %>
+<div class="new_submit">
+  <%= f.submit "投稿する" ,class: 'submit-btn' %>
+</div>
+
+
+
+
 <% end %>
 
-<%= link_to "マイページへ", user_path(current_user.id) %>
+
+<div class="countshiki">
+<form oninput="result.value = Math.round(Number(pri.value) * Number(count_1.value) /10);">
+  <input type="number" name="pri" id="pri" value="0" size="5">文字
+  × 
+  <input type="number" name="count_1" id="count_1" value="9" size="5"> 割= 
+  <output name="result" for="pri count_1">0</output>文字
+</form>
+
+<form oninput="result.value = Math.round(Number(pri.value) * Number(count_2.value) /10);">
+  <input type="number" name="pri" id="pri" value="0" size="5">文字
+  × 
+  <input type="number" name="count_2" id="count_2" value="10" size="5"> 割= 
+  <output name="result" for="pri count_2">0</output>文字
+</form>
+
+<form oninput="result.value = Math.round(Number(pri.value) * Number(count_3.value) /10);">
+  <input type="number" name="pri" id="pri" value="0" size="5">文字
+  × 
+  <input type="number" name="count_3" id="count_3" value="11" size="5"> 割=
+  <output name="result" for="pri count_3">0</output>文字
+</form>
+</div>
+
+<div class="new_margin">
+</div>
